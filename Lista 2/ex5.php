@@ -13,32 +13,19 @@
         <h1>Exercício 5</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="nota1" class="form-label">Digite a primeira nota:</label>
-                <input type="number" id="nota1" name="nota1" class="form-control" required="">
-            </div>
-            <div class="mb-3">
-                <label for="nota2" class="form-label">Digite a segunda nota:</label>
-                <input type="number" id="nota2" name="nota2" class="form-control" required="">
-            </div>
-            <div class="mb-3">
-                <label for="nota3" class="form-label">Digite a terceira nota:</label>
-                <input type="number" id="nota3" name="nota3" class="form-control" required="">
+                <label for="num" class="form-label">Informe um número: </label>
+                <input type="number" id="num" name="num" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
-
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nota1 = $_POST["nota1"];
-            $nota2 = $_POST["nota2"];
-            $nota3 = $_POST["nota3"];
-            $media = ($nota1 + $nota2 + $nota3) / 3;
-            echo "<p>A média das notas é igual a: $media</p>";
-        }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $num = $_POST['num'];
+                $raiz = sqrt($num);
+                echo "<p>A raiz quadrada do número $raiz</p>";
+            }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </div>
 </body>
 

@@ -13,26 +13,31 @@
         <h1>Exercício 10</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="nome" class="form-label">Insira seu nome completo: </label>
-                <input type="text" id="nome" name="nome" class="form-control" required="">
+                <label for="alt" class="form-label">Digite a altura do retângulo:</label>
+                <input type="number" id="alt" name="alt" class="form-control" required="">
+            </div>
+            <div class="mb-3">
+                <label for="larg" class="form-label">Digite a largura do retângulo:</label>
+                <input type="number" id="larg" name="larg" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $nome = $_POST['nome'];
-                $saida = "Saída -> ";
-                $parte = explode(" ", $nome);
-                for($i = 0; $i < count($parte); $i++){
-                    if (ctype_upper(substr($parte[$i], 0, 1))){
-                        $saida .= substr($parte[$i], 0, 1) . ".";
-                    } 
-                }
-                echo "<p>$saida</p>";
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $alt = $_POST["alt"];
+            $larg = $_POST["larg"];
+            $per = 2 * ($alt + $larg);
+            echo "<p>O perímetro do retângulo é: $per.</p>";
+        }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
+
+</html>
 
 </html>

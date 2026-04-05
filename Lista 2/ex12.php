@@ -13,24 +13,27 @@
         <h1>Exercício 12</h1>
         <form method="post">
             <div class="mb-3">
-            <label for="btn" class="form-label">Aperte para gerar uma senha: </label>
-            <button type="btn" class="btn btn-primary">Gerar </button>
+                <label for="base" class="form-label">Digite a base:</label>
+                <input type="number" id="base" name="base" class="form-control" required="">
+            </div>
+            <div class="mb-3">
+                <label for="potencia" class="form-label">Digite a potência:</label>
+                <input type="text" id="potencia" name="potencia" class="form-control" required="">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $caracteres = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9));
-                $senha = "";
-
-                for($i = 0; $i < 8; $i++){
-                    $indice = rand(0, count($caracteres) - 1);
-                    $senha .= $caracteres[$indice];
-                }
-
-                echo "<p>A senha é: $senha</p>";
-
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+                $base = $_POST["base"];
+                $potencia = $_POST["potencia"];
+                $result = $base ** $potencia;
+                echo "<p>$base elevado a $potencia é igual a: $result.</p>";
             }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
 

@@ -2,31 +2,36 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 6</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício 6</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container py-3">
-        <h1>Exercício 6</h1>
-        <form method="post">
-            <div class="mb-3">
-                <label for="num" class="form-label">Informe um número: </label>
-                <input type="number" id="num" name="num" class="form-control" required="">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $num = $_POST['num'];
-            for ($i = 1; $i <= $num; $i++)
-                echo "<p>$i</p>";
-        }
-        ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    </div>
+  <div class="container py-3">
+    <h1>Exercício 6</h1>
+    <form method="post">
+      <div class="mb-3">
+        <label for="num" class="form-label">Informe um número de ponto flutuante: </label>
+        <input type="number" id="num" name="num" class="form-control" required="" step=any>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $num = $_POST['num'];
+        $numCima = ceil($num);
+        $numBaixo  = floor($num);
+        $numArredondado = round($num);
+
+        echo "<p>Número arredondado para cima: $numCima </p>";
+        echo "<p>Número arredondado para baixo: $numBaixo</p>";
+        echo "<p>Número arredondado normalmente: $numArredondado</p>";
+      }
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  </div>
 </body>
 
 </html>

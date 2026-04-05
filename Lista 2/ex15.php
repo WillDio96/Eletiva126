@@ -13,20 +13,28 @@
         <h1>Exercício 15</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="email" class="form-label">Informe um endereço de e-mail</label>
-                <input type="email" id="email" name="email" class="form-control" required="">
+                <label for="peso" class="form-label">Digite seu peso (em quilos):</label>
+                <input type="text" id="peso" name="peso" class="form-control" required="">
+            </div>
+            <div class="mb-3">
+                <label for="alt" class="form-label">Digite sua altura (em metros):</label>
+                <input type="text" id="alt" name="alt" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $email = $_POST['email'];
-                $dominio = substr(strrchr($email, "@"), 1);
-                
-                echo "<p>Saída: $dominio </p>";
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $peso = $_POST["peso"];
+            $alt = $_POST["alt"];
+            $imc = $peso / ($alt ** 2);
+            echo "<p>O seu Índice de Massa Corporal é igual a: $imc.</p>";
+        }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
 

@@ -12,47 +12,28 @@
     <div class="container py-3">
         <h1>Exercício 3</h1>
         <form method="post">
-            <?php
-                for($i=0;$i<5;$i++)
-                echo '<div class="row inline-row mb-3">
-                    <div class="col-md-4">
-                        <label for="cod[]" class="form-label">Informe o código do produto: </label>
-                        <input type="number" id="cod[]" name="cod[]" class="form-control" required="">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="nome[]" class="form-label">Informe o nome do produto: </label>
-                        <input type="text" id="nome[]" name="nome[]" class="form-control" required="">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="preco[]" class="form-label">Informe o preço do produto: </label>
-                        <input type="number" id="preco[]" name="preco[]" class="form-control" required="" step="any">
-                    </div>
-                </div>';
-            ?>
+            <div class="mb-3">
+                <label for="numero1" class="form-label">Digite o primeiro valor:</label>
+                <input type="number" id="numero1" name="numero1" class="form-control" required="">
+            </div>
+            <div class="mb-3">
+                <label for="numero2" class="form-label">Digite o segundo valor:</label>
+                <input type="number" id="numero2" name="numero2" class="form-control" required="">
+            </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $cod = $_POST['cod'];
-                $nome = $_POST['nome'];
-                $preco = $_POST['preco'];
-                $mapa = [];
-
-                for($i=0;$i<5;$i++){
-                    $mapa[$cod[$i]] = [$nome[$i], $preco[$i]];
-                }
-
-                uasort($mapa, function($a, $b){
-                    return $a[0] <=> $b[0];
-                });
-
-                echo "<p>== Lista ordenada pelo nome do produto e com 10% de desconto nos preços acima de R$100 ==</p>";
-                foreach($mapa as $chave => $valor){
-                    if($valor[1] > 100)
-                        $valor[1] = $valor[1] * 0.9;
-                    echo "<pre>Cod: ".$chave." \tProduto: ".$valor[0]."\t\tPreço: ".$valor[1]."</pre>";
-                }
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $numero1 = $_POST["numero1"];
+            $numero2 = $_POST["numero2"];
+            if ($numero1 > $numero2)
+                echo "<p>$numero2 $numero1</p>";
+            elseif ($numero1 < $numero2)
+                echo "<p>$numero1 $numero2</p>";
+            else
+                echo "<p>Números iguais: $numero1.</p>";
+        }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </div>

@@ -13,20 +13,31 @@
         <h1>Exercício 8</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="frase" class="form-label">Insira uma frase: </label>
-                <input type="text" id="frase" name="frase" class="form-control" required="">
+                <label for="alt" class="form-label">Digite a altura do retângulo:</label>
+                <input type="number" id="alt" name="alt" class="form-control" required="">
+            </div>
+            <div class="mb-3">
+                <label for="larg" class="form-label">Digite a largura do retângulo:</label>
+                <input type="number" id="larg" name="larg" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $frase = $_POST['frase'];
-                $qtdeVog = preg_match_all('/[aeiou]/i', $frase);
-                echo "<p>Existem $qtdeVog vogais na frase.</p>";
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $alt = $_POST["alt"];
+            $larg = $_POST["larg"];
+            $area = $alt * $larg;
+            echo "<p>A área do retângulo é: $area.</p>";
+        }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
+
+</html>
 
 </html>

@@ -13,20 +13,22 @@
         <h1>Exercício 11</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="valor" class="form-label">Informe um valor numérido</label>
-                <input type="number" id="valor" name="valor" class="form-control" required="" step="any">
+                <label for="raio" class="form-label">Digite o raio do círculo:</label>
+                <input type="number" id="raio" name="raio" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $valor = $_POST['valor'];
-                $fmt = number_format($valor, 2, ",", ".");
-                echo "<p>Entrada: $valor</p>";
-                echo "<p>Saída: R$ $fmt</p>";
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+                $raio = $_POST["raio"];
+                $per = 2 * 3.14 * $raio;
+                echo "<p>O perímetro do círculo é igual a: $per.</p>";
             }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
 

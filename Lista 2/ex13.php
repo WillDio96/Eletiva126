@@ -13,27 +13,23 @@
         <h1>Exercício 13</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="frase" class="form-label">Informe uma frase: </label>
-                <input type="text" id="frase" name="frase" class="form-control" required="">
+                <label for="metros" class="form-label">Digite um valor em metros:</label>
+                <input type="number" id="met" name="met" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
         <?php
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $frase = $_POST['frase'];
-            $maior = "";
-            $palavras = explode(" ", $frase);
-
-            foreach($palavras as $palavra){
-                if(strlen($palavra) > strlen($maior))
-                    $maior = $palavra;
-            }
-
-            echo "<p>Numero total de palavras: " . count($palavras) . "</p>";
-            echo "<p>A maior palavra da frase é: $maior</p>";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $met = $_POST["met"];
+            $cent = $met * 100;
+            echo "<p>$met metro(s) convertido para centímetros é igual a $cent centímetros.</p>";
         }
         ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </div>
 </body>
 

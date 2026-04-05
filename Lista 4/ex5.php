@@ -12,41 +12,57 @@
     <div class="container py-3">
         <h1>Exercício 5</h1>
         <form method="post">
-            <?php
-                for($i=0;$i<5;$i++)
-                echo '<div class="row inline-row mb-3">
-                    <div class="col-md-6">
-                        <label for="titulo[]" class="form-label">Informe o título do livro</label>
-                        <input type="text" id="titulo[]" name="titulo[]" class="form-control" required="">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="qtde[]" class="form-label">Informe a quantidade em estoque</label>
-                        <input type="number" id="qtde[]" name="qtde[]" class="form-control" required="">
-                    </div>
-                </div>';
-            ?>
+            <div class="mb-3">
+                <label for="valor" class="form-label">Insira o valor associado a um mês: </label>
+                <input type="number" id="valor" name="valor" class="form-control" required="">
+            </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
         <?php
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $titulo = $_POST['titulo'];
-                $qtde = $_POST['qtde'];
-                $mapa = [];
-
-                for($i=0;$i<5;$i++){
-                    $mapa[$titulo[$i]] = $qtde[$i];
-                }
-
-                ksort($mapa);
-                echo "<p>=== Lista de livros ordenada por título ===</p>";
-
-                foreach($mapa as $chave => $valor){
-                    $aviso = "";
-                    if ($valor < 5)
-                        $aviso = "<span class='text-danger'> - Estoque abaixo de 5 unidades!</span>";
-                    echo "<pre>Título: $chave \tQuantidade: $valor $aviso</pre>";                   
-                }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $valor = $_POST['valor'];
+            switch ($valor) {
+                case "1":
+                    echo "<p>1 - Janeiro</p>";
+                    break;
+                case "2":
+                    echo "<p>2 - Fevereiro</p>";
+                    break;
+                case "3":
+                    echo "<p>3 - Março</p>";
+                    break;
+                case "4":
+                    echo "<p>4 - Abril</p>";
+                    break;
+                case "5":
+                    echo "<p>5 - Maio</p>";
+                    break;
+                case "6":
+                    echo "<p>6 - Junho</p>";
+                    break;
+                case "7":
+                    echo "<p>7 - Julho</p>";
+                    break;
+                case "8":
+                    echo "<p>8 - Agosto</p>";
+                    break;
+                case "9":
+                    echo "<p>9 - Setembro</p>";
+                    break;
+                case "10":
+                    echo "<p>10 - Outubro</p>";
+                    break;
+                case "11":
+                    echo "<p>11 - Novembro</p>";
+                    break;
+                case "12":
+                    echo "<p>12 - Dezembro</p>";
+                    break;
+                default:
+                    echo "<p>Valor Inválido</p>";
+                    break;
             }
+        }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </div>

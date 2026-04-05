@@ -13,8 +13,8 @@
         <h1>Exercício 7</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="tem_far" class="form-label">Digite a temperatura em Fahrenheit:</label>
-                <input type="number" id="tem_far" name="tem_far" class="form-control" required="">
+                <label for="temp_far" class="form-label">Digite a temperatura em Fahrenheit:</label>
+                <input type="number" id="temp_far" name="temp_far" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
@@ -22,8 +22,8 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $temp_far = $_POST["temp_far"];
-            $temp_cels = $temp_far - 32;
-            echo "<p>$temp_far °F convertido para Celsius é igual a: $temp_cels °C.";
+            $temp_cels = number_format(($temp_far - 32) * 5 / 9, 2);
+            echo "<p>$temp_far °F convertido para Celsius é igual a: $temp_cels °C.</p>";
         }
         ?>
 

@@ -3,7 +3,7 @@
 $host   = 'localhost';
 $db     = 'hotel';
 $user = 'root';
-$pass = 'YES';
+$pass = '';
 $charset = 'utf8mb4';
 
 try {
